@@ -3,22 +3,25 @@ package com.company;
 import java.util.Random;
 
 public class JuegoDados {
+    Dados dado1;  // Object 1
+    Dados dado2;  // Object 2
+    Dados dado3;  // Object 3
 
-    Random random = new Random();
-
-    Dados dado1 = new Dados();  // Object 1
-    Dados dado2 = new Dados();  // Object 2
-    Dados dado3 = new Dados();  // Object 3
-
-    public int getDado1() {
-        return dado1.setValor(random.nextInt(6)+1);
-    }
-    public int getDado2() {
-        return dado2.setValor(random.nextInt(6)+1);
-    }
-    public int getDado3() {
-        return dado3.setValor(random.nextInt(6)+1);
+    public JuegoDados(){
+        this.dado1 = new Dados();
+        this.dado2 = new Dados();
+        this.dado3 = new Dados();
     }
 
+    public boolean jugar(){
+        int d1 = this.dado1.tirar();
+        int d2 = this.dado2.tirar();
+        int d3 = this.dado3.tirar();
 
+        return d1 == d2 && d2 == d3;
+    }
+
+    public String toString(){
+        return  "Resultado: " + dado1 + " " + dado2 + " " + dado3;
+    }
 }

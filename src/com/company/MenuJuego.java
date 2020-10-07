@@ -5,11 +5,7 @@ import java.util.Scanner;
 public class MenuJuego {
     private Scanner scanner = new Scanner(System.in);
 
-    JuegoDados dado1 = new JuegoDados();  // Object 1
-    JuegoDados dado2 = new JuegoDados();  // Object 2
-    JuegoDados dado3 = new JuegoDados();  // Object 3
-
-    public void start(){
+    public void start() {
         menuPrincipal();
     }
 
@@ -20,11 +16,12 @@ public class MenuJuego {
             System.out.println("1. Juego de los Dados");
             System.out.println("2. Jugar al Parchis");
             System.out.println("3. Jugar al Tic Tac Toe");
+            System.out.println("4. EXIT");
             option = scanner.nextInt();
             scanner.nextLine();
             switch (option) {
                 case 1:
-                    juego();
+                    dado();
                     break;
                 case 2:
                     System.out.println("##############################");
@@ -40,16 +37,59 @@ public class MenuJuego {
                     System.out.println("##        Error 403         ##");
                     System.out.println("##############################");
                     break;
+                case 4:
+                    break;
                 default:
                     System.out.println("ATENCIÓ!!!! ha de ser 1,2 o 3");
             }
-        }while(option != 3);
+        } while (option != 4 );
     }
-    private void juego() {
+
+    private void dado() {
         System.out.println("### ESTAS JUGANDO AL JUEGO DE LOS DADOS ###");
-        System.out.println(dado1.getDado1());
-        System.out.println(dado2.getDado2());
-        System.out.println(dado3.getDado3());
+
+        JuegoDados juego = new JuegoDados();
+
+        int tiradas = 0;
+        int ganadas = 0;
+
+        int opc = 0;
+
+        do {
+            for (; opc != 2 ; tiradas++) {
+                boolean b = juego.jugar();
+                System.out.println(juego);
+                if (b) {
+                    System.out.println("HAS GANADO !!");
+                    ganadas++;
+                }
+                opc = scanner.nextInt();
+            }
+            System.out.println("¡ Has ganado " + ganadas + " partidas !");
+            //Falta cuantas partidas se ha perdido..
+            System.out.println("Saliendo del juego de los dados ....");
+            System.out.println(".... volviendo al Menu principal");
+            System.out.println(" ");
+            System.out.println("####################################");
+            System.out.println("#            JUEGOS 2020           #");
+            System.out.println("####################################");
+
+            switch (opc) {
+                case 1:
+                    seguir();
+                    break;
+                case 2:
+
+                    break;
+                default:
+                    System.out.println("¡Opción invalida! Elige la opción 1 o 2");
+            }
+        } while ((opc != 2));
+    }
+
+    public void seguir(){
+        dado();
     }
 }
+
 

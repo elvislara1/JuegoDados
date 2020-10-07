@@ -6,18 +6,21 @@ public class Dados {
 
     Random random = new Random();
     private int valor;
-    private int maximo;
-
-    public void tirar(){
-        maximo = random.nextInt(6)+1;
-    }
 
     public int getValor() {
-        return valor;
+        return this.valor;
     }
 
-    public int setValor(int valor) {
+    public void setValor(int valor) {
         this.valor = valor;
-        return valor;
+    }
+
+    public int tirar() {
+        this.valor = random.nextInt(6)+1;
+        return this.valor;
+    }
+
+    public String toString(){
+        return "Dado valor: " + this.valor;
     }
 }
