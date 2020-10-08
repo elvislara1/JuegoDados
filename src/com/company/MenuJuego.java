@@ -36,6 +36,7 @@ public class MenuJuego {
                     System.out.println("##############################");
                     System.out.println("##        Error 403         ##");
                     System.out.println("##############################");
+                    System.out.println(" ");
                     break;
                 case 4:
                     break;
@@ -52,27 +53,33 @@ public class MenuJuego {
 
         int tiradas = 0;
         int ganadas = 0;
+        int perdidas = 0;
 
         int opc = 0;
 
         do {
             for (; opc != 2 ; tiradas++) {
-                boolean b = juego.jugar();
+                boolean iguales = juego.jugar();
                 System.out.println(juego);
-                if (b) {
+                if (iguales) {
                     System.out.println("HAS GANADO !!");
+                    System.out.println();
+                    System.out.println("Seguir jugando? ( '1' or '2' )");
                     ganadas++;
+                }else {
+                    perdidas++;
+                    System.out.println();
+                    System.out.println("Seguir jugando? ( '1' or '2' )");
                 }
                 opc = scanner.nextInt();
             }
-            System.out.println("¡ Has ganado " + ganadas + " partidas !");
+            System.out.println("Has ganado " + ganadas + " partidas");
+            System.out.println("Has perdido " + perdidas + " veces");
+            System.out.println();
             //Falta cuantas partidas se ha perdido..
             System.out.println("Saliendo del juego de los dados ....");
             System.out.println(".... volviendo al Menu principal");
-            System.out.println(" ");
-            System.out.println("####################################");
-            System.out.println("#            JUEGOS 2020           #");
-            System.out.println("####################################");
+            System.out.println();
 
             switch (opc) {
                 case 1:

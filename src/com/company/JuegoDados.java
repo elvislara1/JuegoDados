@@ -22,6 +22,6 @@ public class JuegoDados {
     }
 
     public String toString(){
-        return  "Resultado: " + dado1 + " " + dado2 + " " + dado3;
+        return  "Resultado: "+  "\n" + dado1 + "\n" + dado2 + "\n" + dado3;
     }
 }
